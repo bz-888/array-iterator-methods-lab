@@ -204,7 +204,7 @@ const inventors = [
   // Array.prototype.findIndex()
   // 11. Find the index of the comment with an id of 123523
   
-  // same as question 10 except 
+  // same as question 10 except instead of returning the object itself, return the index number of the object we are looking for within the comments array
   const targetIndex = comments.findIndex((comment) => {
     const targetID = 123523;
     return comment.id === targetID;
