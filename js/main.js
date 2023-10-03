@@ -131,7 +131,7 @@ const inventors = [
     // create a variable for accumulator named acc, make it an empty object
     // vehicle in the first iteration is car, is the car property of the empty object falsy or truthy? it's undefined since there isn't a car property in the EMPTY object named arr, therefore, it is falsy, so set the acc object's car property to have a value of 1
     // vehicle in the second iteration is car, is the car property of the acc object falsy or truthy? The car property of the acc object has a value of 1, so it is truthy. Because it is truthy, take the car property's value and add 1 to it, making it 2. Set object acc's car property value to 2.
-    // continue using this logic
+    // continue using this logic for the rest of the data array
     acc[vehicle] = acc[vehicle] ? acc[vehicle] + 1 : 1;
     return acc;
   }, {});
@@ -151,10 +151,31 @@ const inventors = [
   // 8. Check if at least one person is 19 or older?
   // Hint: To get today's year, use the getFullYear method of new Date(), i.e., new Date().getFullYear()
   
+  // testing getFullYear method of new Date()
+  // console.log(new Date().getFullYear()); // outputs 2023
+
+  // iterate each object in the devs array, the moment true is returned, return true and exit the loop, set any19OrOver to true
+  const any19OrOver = devs.some((person) => {
+    // define a variable called currentYear using the getFullYear method of new Date()
+    const currentYear = new Date().getFullYear();
+    // for each person in the devs array, return true if currentYear minus the value of the year property of the person is greater than or equal to 19
+    return (currentYear - person.year) >= 19;
+  });
+
+  console.log(any19OrOver);
   
+
+
   // Array.prototype.every()
   // 9. Check if everyone is 19 or older?
   
+  // same as question 8 EXCEPT, because we used .every instead of .some, the moment an iteration returns false, return false to the all19OrOver variable and exit the loop
+  const all19OrOver = devs.every((person) => {
+    const currentYear = new Date().getFullYear();
+    return (currentYear - person.year) >= 19;
+  });
+
+  console.log(all19OrOver);
   
   
   const comments = [
@@ -168,11 +189,27 @@ const inventors = [
   // Array.prototype.find()
   // 10. Find the comment with the id of 823423
   
+  // iterate through the comments array, compare the value of the id property of each object (named "comment") to the value of targetID, return true if it's a match
+  // once the first "true" is found, return true and assign the matching object to targetComment and exit the loop
+  const targetComment = comments.find((comment) => {
+    // define a variable named targetID as the id we are looking for, we define a variable here so we can easily change the code if we need to
+    const targetID = 823423;
+    return comment.id === targetID;
+  });
+
+  console.log(targetComment);
   
-  
+
+
   // Array.prototype.findIndex()
   // 11. Find the index of the comment with an id of 123523
   
-  
+  // same as question 10 except 
+  const targetIndex = comments.findIndex((comment) => {
+    const targetID = 123523;
+    return comment.id === targetID;
+  });
+
+  console.log(targetIndex);
   
   
